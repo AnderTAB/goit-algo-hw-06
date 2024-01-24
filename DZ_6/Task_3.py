@@ -72,5 +72,5 @@ def random_time_station(graph_stations):
     return graph_ws_rand_time
 
 # pprint.pprint(random_time_station(graph))
-
+print('Знаходимо найкоротший шлях між вершинами (в хвилинах):')
 pprint.pprint(dijkstra(random_time_station(graph), 'Акад'))
