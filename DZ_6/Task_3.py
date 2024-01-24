@@ -1,3 +1,9 @@
+from random import uniform
+import pprint
+
+from dijkstra import dijkstra
+
+
 graph = {
 'Акад': ['Житом'],
 'Житом': ['Акад', 'Свят'],
@@ -52,3 +58,19 @@ graph = {
 'Борис': ['Вирлиц', 'Черво'],
 'Черво': ['Борис']
 }
+
+
+# Вводитии час між станціями в ручну занадто довго, 
+# тому пропишемо код що буде випадкович чином визначати час між станціями в хвилинах
+def random_time_station(graph_stations):
+    graph_ws_rand_time = dict()
+    for k, v in graph_stations.items():
+        d = dict()
+        for statin in v:
+            d.update({statin : round(uniform(0.5, 4), 1)})
+        graph_ws_rand_time.update({k : d})
+    return graph_ws_rand_time
+
+# pprint.pprint(random_time_station(graph))
+
+pprint.pprint(dijkstra(random_time_station(graph), 'Акад'))
